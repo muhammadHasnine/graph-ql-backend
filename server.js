@@ -12,7 +12,7 @@ import express from "express";
 import http from "http";
 const app = express();
 const httpServer = http.createServer(app);
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "PRODUCTION") {
   dotenv.config();
 }
 connectDB();
@@ -32,7 +32,7 @@ const server = new ApolloServer({
   },
   plugins: [
     ApolloServerPluginDrainHttpServer({ httpServer }),
-    process.env.NODE_ENV !== "production"
+    process.env.NODE_ENV !== "PRODUCTION"
       ? ApolloServerPluginLandingPageGraphQLPlayground()
       : ApolloServerPluginLandingPageDisabled(),
   ],
