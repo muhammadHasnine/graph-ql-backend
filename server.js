@@ -37,6 +37,9 @@ const server = new ApolloServer({
       : ApolloServerPluginLandingPageDisabled(),
   ],
 });
+app.get("/",(req,res)=>{
+  res.send("Working")
+})
 await server.start();
 server.applyMiddleware({
      app,
